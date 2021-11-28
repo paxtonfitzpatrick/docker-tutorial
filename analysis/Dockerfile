@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:4.9.2
 
-LABEL maintainer="Paxton Fitzpatrick <Paxton.GR@dartmouth.edu>"
+LABEL maintainer="Paxton Fitzpatrick <paxton.gr@dartmouth.edu>"
 
 ENV LANG C.UTF-8
 
@@ -9,9 +9,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN conda config --set auto_update_conda false \
-        --set notify_outdated_conda false \
-        --prepend channels conda-forge \
-        --set channel_priority strict \
+    && conda config --set notify_outdated_conda false \
+    && conda config --prepend channels conda-forge \
+    && conda config --set channel_priority strict \
     && conda install -Sy \
         python==3.8.5 \
         pip==20.2.4 \
@@ -24,3 +24,11 @@ RUN conda config --set auto_update_conda false \
         matplotlib=3.2.2 \
         seaborn=0.11.0 \
     && conda clean -afy
+
+COPY jupyter_notebook_config.py /root/.jupyter/
+
+WORKDIR "/mnt"
+
+ENTRYPOINT ["tini", "-g", "--"]
+
+CMD ["jupyter", "notebook"]
