@@ -4,5 +4,8 @@
 # PyCharm config
 .idea
 
+# Jupyter notebook checkpoints
+*.ipynb_checkpoints/
+
 # generated example figures
 analysis/figures/
