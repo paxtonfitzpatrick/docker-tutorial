@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:4.10.3
+FROM continuumio/miniconda3:4.9.2
 
 LABEL maintainer="Paxton Fitzpatrick <Paxton.GR@dartmouth.edu>"
 
@@ -13,8 +13,8 @@ RUN conda config --set auto_update_conda false \
         --prepend channels conda-forge \
         --set channel_priority strict \
     && conda install -Sy \
-        python==3.9.5 \
-        pip==21.1.2 \
+        python==3.8.5 \
+        pip==20.2.4 \
         notebook=6.1.4 \
         ipywidgets=7.5.1 \
         jupyter_contrib_nbextensions=0.5.1 \
