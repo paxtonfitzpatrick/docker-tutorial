@@ -19,3 +19,8 @@ RUN conda config --set auto_update_conda false \
         ipywidgets=7.5.1 \
         jupyter_contrib_nbextensions=0.5.1 \
         tini=0.18.0 \
+        numpy=1.19.1 \
+        pandas=1.1.2 \
+        matplotlib=3.2.2 \
+        seaborn=0.11.0 \
+    && conda clean -afy
