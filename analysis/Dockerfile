@@ -2,11 +2,9 @@ FROM continuumio/miniconda3:4.9.2
 
 LABEL maintainer="Paxton Fitzpatrick <paxton.gr@dartmouth.edu>"
 
-ENV LANG C.UTF-8
+ARG port=8888
 
-ARG DEBIAN_FRONTEND=noninteractive
-
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ENV NOTEBOOK_PORT $port
 
 RUN conda config --set auto_update_conda false \
     && conda config --set notify_outdated_conda false \
