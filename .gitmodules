@@ -1,0 +1,3 @@
+[submodule "experiment"]
+	path = experiment
+	url = https://github.com/paxtonfitzpatrick/psiturk-experiment-template.git
